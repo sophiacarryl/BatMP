@@ -1,0 +1,17 @@
+G=readRDS("epomophorusskin_.20.spiec.graph.rds")
+  
+se.net = initialize_igraph_network(net0 = G, projectname = "epomophorusskin.20", parameters = "params")
+
+G2=load_network_stats(se.net)
+
+get_clusters_and_plot(G2)
+
+stats=print_summary_stats(G2)
+
+taxonomyfile="epomophorusskin_.20.tax.csv"
+
+taxonomydf<- read.table(paste(taxonomyfile,sep=""), stringsAsFactors = F, header=T,sep=",",fill=TRUE)
+
+G3=add_vertex_attributes(G2,taxonomydf,colnames(taxonomydf))
+
+explore_network_with_taxa(G3)
