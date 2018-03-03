@@ -1,0 +1,116 @@
+library(phyloseq)
+library(ggplot2)
+library(vegan)
+library(readr)
+library(data.table)
+library(dplyr)
+library(stats)
+library(SpiecEasi)
+library(igraph)
+
+epomophorusfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Epomophorus_fecal_nt.rds")
+hipposiderosfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Hipposideros_fecal_nt_fecal_nt.rds") 
+miniopterusfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Miniopterus_fecal_nt.rds") 
+myonycterisfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Myonycteris_fecal_nt.rds")
+myotisfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Myotis_fecal_nt.rds")
+neoromiciafecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Neoromicia_fecal_nt.rds")
+otomopsfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Otomops_fecal_nt.rds")
+pipistrellusfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Pipistrellus_fecal_nt.rds")
+rhinolophusfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Rhinolophus_fecal_nt.rds")
+rousettusfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Rousettus_fecal_nt.rds")
+scotoecusfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Scotoecus_fecal_nt.rds")
+scotophilusfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Scotophilus_fecal_nt.rds")
+triaenopsfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Triaenops_fecal_nt.rds")
+chaerephonfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Chaerephon_fecal_nt.rds")
+vesperfecal = readRDS("/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/RDSfiles/ByGenus/Vesper_fecal_nt.rds")
+
+#epomophorus
+epomophorusfecal.se.out=spiec.easi(epomophorusfecal, method="mb", icov.select.params=list(rep.num=20))
+epomophorusfecal.spiec.graph=adj2igraph(epomophorusfecal.se.out$refit, vertex.attr=list(name=taxa_names(epomophorusfecal)))
+saveRDS(epomophorusfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/epomophorusfecal.spiec.graph.rds")
+
+
+#hipposideros
+hipposiderosfecal.se.out=spiec.easi(hipposiderosfecal, method="mb", icov.select.params=list(rep.num=20))
+hipposiderosfecal.spiec.graph=adj2igraph(hipposiderosfecal.se.out$refit, vertex.attr=list(name=taxa_names(hipposiderosfecal)))
+saveRDS(hipposiderosfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/hipposiderosfecal.spiec.graph.rds")
+
+
+#miniopterus
+miniopterusfecal.se.out=spiec.easi(miniopterusfecal, method="mb", icov.select.params=list(rep.num=20))
+miniopterusfecal.spiec.graph=adj2igraph(miniopterusfecal.se.out$refit, vertex.attr=list(name=taxa_names(miniopterusfecal)))
+saveRDS(miniopterusfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/miniopterusfecal.spiec.graph.rds")
+
+
+#myonycteris
+myonycterisfecal.se.out=spiec.easi(myonycterisfecal, method="mb", icov.select.params=list(rep.num=20))
+myonycterisfecal.spiec.graph=adj2igraph(myonycterisfecal.se.out$refit, vertex.attr=list(name=taxa_names(myonycterisfecal)))
+saveRDS(myonycterisfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/myonycterisfecal.spiec.graph.rds")
+
+
+#myotis
+myotisfecal.se.out=spiec.easi(myotisfecal, method="mb", icov.select.params=list(rep.num=20))
+myotisfecal.spiec.graph=adj2igraph(myotisfecal.se.out$refit, vertex.attr=list(name=taxa_names(myotisfecal)))
+saveRDS(myotisfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/myotisfecal.spiec.graph.rds")
+
+
+#neoromicia
+neoromiciafecal.se.out=spiec.easi(neoromiciafecal, method="mb", icov.select.params=list(rep.num=20))
+neoromiciafecal.spiec.graph=adj2igraph(neoromiciafecal.se.out$refit, vertex.attr=list(name=taxa_names(neoromiciafecal)))
+saveRDS(neoromiciafecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/neoromiciafecal.spiec.graph.rds")
+
+
+#otomops
+otomopsfecal.se.out=spiec.easi(otomopsfecal, method="mb", icov.select.params=list(rep.num=20))
+otomopsfecal.spiec.graph=adj2igraph(otomopsfecal.se.out$refit, vertex.attr=list(name=taxa_names(otomopsfecal)))
+saveRDS(otomopsfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/otomopsfecal.spiec.graph.rds")
+
+
+#pipistrellus
+pipistrellusfecal.se.out=spiec.easi(pipistrellusfecal, method="mb", icov.select.params=list(rep.num=20))
+pipistrellusfecal.spiec.graph=adj2igraph(pipistrellusfecal.se.out$refit, vertex.attr=list(name=taxa_names(pipistrellusfecal)))
+saveRDS(pipistrellusfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/pipistrellusfecal.spiec.graph.rds")
+
+
+#rhinolophus
+rhinolophusfecal.se.out=spiec.easi(rhinolophusfecal, method="mb", icov.select.params=list(rep.num=20))
+rhinolophusfecal.spiec.graph=adj2igraph(rhinolophusfecal.se.out$refit, vertex.attr=list(name=taxa_names(rhinolophusfecal)))
+saveRDS(rhinolophusfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/rhinolophusfecal.spiec.graph.rds")
+
+
+#rousettus
+rousettusfecal.se.out=spiec.easi(rousettusfecal, method="mb", icov.select.params=list(rep.num=20))
+rousettusfecal.spiec.graph=adj2igraph(rousettusfecal.se.out$refit, vertex.attr=list(name=taxa_names(rousettusfecal)))
+saveRDS(rousettusfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/rousettusfecal.spiec.graph.rds")
+
+
+#scotoecus
+scotoecusfecal.se.out=spiec.easi(scotoecusfecal, method="mb", icov.select.params=list(rep.num=20))
+scotoecusfecal.spiec.graph=adj2igraph(scotoecusfecal.se.out$refit, vertex.attr=list(name=taxa_names(scotoecusfecal)))
+saveRDS(scotoecusfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/scotoecusfecal.spiec.graph.rds")
+
+
+#scotophilus
+scotophilusfecal.se.out=spiec.easi(scotophilusfecal, method="mb", icov.select.params=list(rep.num=20))
+scotophilusfecal.spiec.graph=adj2igraph(scotophilusfecal.se.out$refit, vertex.attr=list(name=taxa_names(scotophilusfecal)))
+saveRDS(scotophilusfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/scotophilusfecal.spiec.graph.rds")
+
+
+#triaenops
+triaenopsfecal.se.out=spiec.easi(triaenopsfecal, method="mb", icov.select.params=list(rep.num=20))
+triaenopsfecal.spiec.graph=adj2igraph(triaenopsfecal.se.out$refit, vertex.attr=list(name=taxa_names(triaenopsfecal)))
+saveRDS(triaenopsfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/triaenopsfecal.spiec.graph.rds")
+
+
+#chaerephon
+chaerephonfecal.se.out=spiec.easi(chaerephonfecal, method="mb", icov.select.params=list(rep.num=20))
+chaerephonfecal.spiec.graph=adj2igraph(chaerephonfecal.se.out$refit, vertex.attr=list(name=taxa_names(chaerephonfecal)))
+saveRDS(chaerephonfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/chaerephonfecal.spiec.graph.rds")
+
+
+#vesper
+vesperfecal.se.out=spiec.easi(vesperfecal, method="mb", icov.select.params=list(rep.num=20))
+vesperfecal.spiec.graph=adj2igraph(vesperfecal.se.out$refit, vertex.attr=list(name=taxa_names(vesperfecal)))
+saveRDS(vesperfecal.spiec.graph, "/group/gilbert-lab/Lutz/Batmicrobiome/batrun_finaldata_for_phyloseq_Oct2017/spiec_easi/ByGenus/se_networks/vesperfecal.spiec.graph.rds")
+
+
