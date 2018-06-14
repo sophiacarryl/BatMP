@@ -5,7 +5,7 @@
 
 
 ```R
-$ validate_mapping_file.py -m mapping/cuttlefish_mappingfile.txt -o mapping/validate_mappingfile
+$ validate_mapping_file.py -m ~/mapping/cuttlefish_mappingfile.txt -o ~/mapping/validate_mappingfile
 ```
 
 2) Unzip read and barcode fastq files; join reads and barcodes; demultiplex.
