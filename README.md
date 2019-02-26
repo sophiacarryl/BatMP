@@ -1,2 +1,6 @@
 # BatMP
+
+Edit: Updates to code are in progress, stay tuned for finalized code for BatMP analyses and figures  (26 Feb 2019)
+
+
 Bats are among the most diverse animals on the planet and harbor numerous bacterial, viral, and eukaryotic symbionts. The interplay between bacterial community composition and parasitism in bats is not well understood and may have important implications for studies of similar systems. Here we present a comprehensive survey of dipteran and haemosporidian parasites, and characterize the gut, oral, and skin microbiota of Afrotropical bats. We identify significant correlations between bacterial community composition of the skin and dipteran ectoparasite prevalence across four major bat lineages, as well as links between the oral microbiome and malarial parasitism, suggesting a potential mechanism for host selection and vector-borne disease transmission in bats. Mirroring recent studies of host-microbiome co-speciation in mammals, we find a weak correlation between chiropteran phylogenetic distances and bacterial community dissimilarity across the three anatomical sites, suggesting that host environment is more important than shared ancestry in shaping the composition of associated bacterial communities. 
