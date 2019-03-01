@@ -5,7 +5,7 @@
 
 
 ```R
-$ validate_mapping_file.py -m ~/mapping/cuttlefish_mappingfile.txt -o ~/mapping/validate_mappingfile
+$ validate_mapping_file.py -m ~/mapping/batrun_mappingfile.txt -o ~/mapping/validate_mappingfile
 ```
 
 2) Unzip read and barcode fastq files; join reads and barcodes; demultiplex.
@@ -26,7 +26,7 @@ $ ~/scripts/fastq-barcode.pl rawdata/barcodes.fastq rawdata/joined/out.join.fast
 
 #Demultiplex Reads
 $ mkdir demultiplexed
-$ split_libraries_fastq.py -i ~/rawdata/joined/out.join.fastq -b ~/rawdata/joined/out.barcodes.fastq -m ~/mapping/cuttlefish_mappingfile.txt -o ~/rawdata/demultiplexed/cuttlefish_demux_seqs --barcode_type=12 --max_barcode_errors=0 --store_demultiplexed_fastq
+$ split_libraries_fastq.py -i ~/rawdata/joined/out.join.fastq -b ~/rawdata/joined/out.barcodes.fastq -m ~/mapping/batrun_mappingfile.txt -o ~/rawdata/demultiplexed/batrun_demux_seqs --barcode_type=12 --max_barcode_errors=0 --store_demultiplexed_fastq
 
 #Download FastQC program to your local machine (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 #Open demultiplexed/seqs.fastq in Fastqc to determine parameter for Uparse
@@ -134,5 +134,5 @@ $ assign_taxonomy.py -i reference-hit.seqs_aligned.fasta -r /group/gilbert-lab/L
 
 
 ```R
-$ biom add-metadata --sc-separated taxonomy --observation-header OTUID,taxonomy --observation-metadata-fp /group/gilbert-lab/Lutz/Cuttlefish/2017_Experiment/rawdata/deblur/deblur_results/align/uclust_assigned_taxonomy/reference-hit.seqs_aligned_tax_assignments.txt -i /group/gilbert-lab/Lutz/Cuttlefish/2017_Experiment/rawdata/deblur/deblur_results/reference-hit.biom -o /group/gilbert-lab/Lutz/Cuttlefish/2017_Experiment/rawdata/deblur/deblur_results/Final_biom/Cuttlefish_deblur.biom
+$ biom add-metadata --sc-separated taxonomy --observation-header OTUID,taxonomy --observation-metadata-fp ~/rawdata/deblur/deblur_results/align/uclust_assigned_taxonomy/reference-hit.seqs_aligned_tax_assignments.txt -i ~/rawdata/deblur/deblur_results/reference-hit.biom -o ~/rawdata/deblur/deblur_results/Final_biom/batrun_deblur.biom
 ```
