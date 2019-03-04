@@ -2,7 +2,8 @@
 ## General pipeline for demultiplexing paired-end reads, deblurring, and taxonomy assignment
 
 1) Validate mapping file:
-Note: BMP required two HiSeq lanes (run HB1, run HB2); following steps performed separately for each run
+
+#Note: BMP required two HiSeq lanes (run HB1, run HB2); following steps performed separately for each run
 
 ```R
 $ validate_mapping_file.py -m ~/RawData/HB1_2_BMP/batrun_mappingfile.txt -o ~/RawData/HB1_2_BMP/validate_mappingfile
