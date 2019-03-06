@@ -81,6 +81,10 @@ $ ~/RawData/misc_scripts/usearch9.2.64 -uchime_ref ~/RawData/HB1_2_BMP/uparse/fi
 
 4) Identify sub-OTUs (sOTU) using Deblur
 
+Note: If you have demultiplexed multiple Illumina runs, concatenate them now prior to deblur-ing"
+
+$ cat HB1_demultiplexed/seqs.fna HB2_demultiplexed/seqs.fna > HB1_HB2_demux_seqs.fna
+
 #### Input file:
 Demultiplexed FASTA file (e.g. filter_derep.fasta)
 
