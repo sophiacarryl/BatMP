@@ -119,7 +119,7 @@ $ module load python/2.7.13
 
 
 ```R
-$ assign_taxonomy.py -i ~/RawData/HB1_2_BMP/deblur/deblur_results/reference-hit.seqs.fa -t ~/RawData/GG_13_8/gg_13_8_otus/rep_set_aligned/85_otus.pynast.fasta -o aligned
+$ align_seqs.py -i ~/RawData/HB1_2_BMP/deblur/deblur_results/reference-hit.seqs.fa -t ~/RawData/GG_13_8/gg_13_8_otus/rep_set_aligned/85_otus.pynast.fasta -o aligned
 ```
 
 6) Make phylogeny
