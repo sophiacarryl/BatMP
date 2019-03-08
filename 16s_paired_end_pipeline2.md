@@ -133,7 +133,10 @@ $ make_phylogeny.py -i ~/RawData/HB1_2_BMP/aligned/aligned.fasta -o ~/RawData/HB
 
 
 ```R
-$ assign_taxonomy.py -i ~/RawData/HB1_2_BMP/aligned/reference-hit.seqs_aligned.fasta -r ~/RawData/GG_13_8/gg_13_8_otus/rep_set/97_otus.fasta -t ~/RawData/GG_13_8/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt
+$ assign_taxonomy.py -i ~/RawData/HB1_2_BMP/deblur/deblur_results/reference-hit.seqs.fa --id_to_taxonomy_fp ~/RawData/GG_13_8/gg_13_5_otus/taxonomy/97_otu_taxonomy.txt -o taxonomy_assignment #--rdp_max_memory 5000
+
+
+-r ~/RawData/GG_13_8/gg_13_8_otus/rep_set/97_otus.fasta -t ~/RawData/GG_13_8/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt
 ```
 
 8) biom - add metadata
